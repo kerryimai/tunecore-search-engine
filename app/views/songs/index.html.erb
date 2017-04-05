@@ -1,0 +1,54 @@
+<div class="container">
+  <h1> Tune Search </h1>
+  <hr />
+</div>
+
+<div class='search-form-box container'>
+  <div class='row'>
+    <%= form_tag(songs_path, method: :get, remote: true) do %>
+      <div class="col-xs-12 col-sm-3">
+        <div class="form-group">
+          <%= label_tag 'song_title', 'Songs:' %>
+          <%= text_field_tag :song_title, params[:song_title], placeholder: 'Search by song', class: 'form-control'%>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        <div class="form-group">
+          <%= label_tag 'title', 'Albums:' %>
+          <%= text_field_tag :title, params[:title], placeholder: 'Search by album', class: 'form-control'%>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        <div class="form-group">
+          <%= label_tag 'name', 'Artists:' %>
+          <%= text_field_tag :name, params[:name], placeholder: 'Search by artist', class: 'form-control'%>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        <div class="form-group">
+          <%= submit_tag 'Search', name: nil, class: 'submit-btn btn-block btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class='music-table-box container'>
+  <table class='table music-table' style="width:100%">
+    <thead>
+      <tr>
+        <th>Song Title</th>
+        <th>Album Title</th>
+        <th>Artist</th>
+        <th>Featured Artist</th>
+      </tr>
+    </thead>
+
+    <tbody id="songs-grid">
+      <%= render partial: 'song', locals: { songs: @songs} %>
+    </tbody>
+  </table>
+</div>

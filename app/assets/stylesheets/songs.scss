@@ -1,0 +1,44 @@
+// Place all the styles related to the Song controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+  background-image: image_url("background-hd.jpg");
+  color: white;
+}
+
+body.music-search-box {
+  background-color: transparent;
+  color: white;
+}
+
+h1 {
+  margin: 50px;
+}
+// form styling
+.search-form-box {
+  font-size: 20px;
+  text-align: center;
+
+  input {
+    border-radius: 0;
+    background: #BBB;
+    font-size: 20px;
+
+  }
+  .submit-btn {
+    border-radius: 0;
+    color: white;
+    font-size: 20px;
+    background: black;
+  }
+}
+
+// chart styling
+.music-table-box {
+  font-size: 20px;
+  // text-align: center;
+  .music-table {
+    th, td{
+    }
+  }
+}

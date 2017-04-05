@@ -1,0 +1,12 @@
+<% songs.each do |song| %>
+  <tr>
+    <td class="song-col"><%= song.song_title %></td>
+    <td class="album-col"><%= song.album.title%></td>
+    <td class="artist-col"><%= song.artist.name%></td>
+    <td class="ft-col">
+      <% song.ft_artists.map do |singer|%>
+        <%=singer.name%>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

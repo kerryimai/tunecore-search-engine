@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170403030634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "albums", force: :cascade do |t|
     t.string   "title",      null: false
     t.integer  "artist_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["artist_id"], name: "index_albums_on_artist_id", using: :btree
   end
 
   create_table "artists", force: :cascade do |t|
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20170403030634) do
     t.integer  "artist_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_releases_on_artist_id"
-    t.index ["song_id"], name: "index_releases_on_song_id"
+    t.index ["artist_id"], name: "index_releases_on_artist_id", using: :btree
+    t.index ["song_id"], name: "index_releases_on_song_id", using: :btree
   end
 
   create_table "songs", force: :cascade do |t|
@@ -40,7 +43,11 @@ ActiveRecord::Schema.define(version: 20170403030634) do
     t.integer  "album_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["album_id"], name: "index_songs_on_album_id", using: :btree
   end
 
+  add_foreign_key "albums", "artists"
+  add_foreign_key "releases", "artists"
+  add_foreign_key "releases", "songs"
+  add_foreign_key "songs", "albums"
 end
