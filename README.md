@@ -13,7 +13,7 @@ rails db:migrate
 rails db:seed
 ```
 
-- Nokogiri is implemented in the seed file to scrap data from wikipedia links
+- Nokogiri is implemented in the seed file to scrape data from wikipedia links
 - "Scraping success" will be logged in console when Nokogiri seeding completes.
 - if have issue implementing Nokogiri due to local configs, local seed data is also available for use.
 
