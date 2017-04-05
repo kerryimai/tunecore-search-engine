@@ -1,24 +1,43 @@
-# README
+# TuneCore Search Engine
+A Ruby on Rails search platform for music by any combination of artists, albums and songs.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Create database and seeding:
 
-* Ruby version
+After cloning the repo, move in to the folder and run each individually:
 
-* System dependencies
+```
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Configuration
+- Nokogiri is implemented in the seed file to scrap data from wikipedia links
+- "Scraping success" will be logged in console when Nokogiri seeding completes.
+- if have issue implementing Nokogiri due to local configs, local seed data is also available for use.
 
-* Database creation
+## Start server
+run command:
+```
+rails s
+```
+Then navigate to `localhost:3000`
 
-* Database initialization
+## Running the tests:
+To run the tests, simply run:
+```
+rspec
+```
 
-* How to run the test suite
+## Technology Used:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby on Rails - frontend & backend
+* Nokogiri - web scraping
+* Postgres - database
+* Jquery - frontend
+* Ajax - frontend
+* Bootstrap - for styling
+* Sass - for Styling
+* Rspec - testing
+* Factory girl - test data mocking
